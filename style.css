@@ -10,7 +10,6 @@ body {
   background-image: url(./public/assets/iteration-1/home-banner.png);
   background-size: cover;
   background-position: center;
-  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -24,26 +23,26 @@ body {
   font-weight: 100;
   margin: 0;
 }
-.overlay {
+.ustmenu {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap:15px;
 }
-.overlay h2 {
+.ustmenu h2 {
   font-family: 'Satisfy',sans-serif;
   color: #FDC913;
   font-size: 2rem;
   margin: 0;
 }
-.overlay h1 {
+.ustmenu h1 {
   font-family: 'Barlow', sans-serif;
   font-size: 4.5rem;
   font-weight: 200;
   margin: 0;
 }
 
-.overlay button {
+.ustmenu button {
   font-size: 1.2rem;
   padding: 15px 30px;
   border-radius: 50px;
@@ -51,7 +50,6 @@ body {
   color: black;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 .categories {
   display: flex;
@@ -61,7 +59,6 @@ body {
   background-color: white;
   padding: 20px;
   width: 100%;
-  flex-wrap: nowrap;
 }
 .category {
   display: flex;
@@ -70,14 +67,14 @@ body {
   gap: 10px;
 }
 .category img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: block;
   margin: 0 auto 10px;
-}
+} /*category yazıları */
 .cat-text {
-  margin-top: 8px;
-  font-size: 0.9rem;
+  margin-top: 4px;
+  font-size: 14px;
   text-align: center;
   color: #333;
 }
@@ -92,26 +89,7 @@ body {
   gap: 20px;
   justify-content: center;
 }
-/* promo-card resimler  */
-.promo-card.pizza {
-  background-image: url("./public/assets/iteration-2/cta/kart-1.png");
-  color: white;
-  width: 25%;
-} 
-.promo-card.burger{
-  background-image: url("./public/assets/iteration-2/cta/kart-2.png");
-  width: 160%;
-}
-.promo-card.kurye {
-  background-image: url("./public/assets/iteration-2/cta/kart-3.png");
-  width: 150%;
-}
-.right-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 100%;
-}
+
 /*Promo card üstündeki yazılar */
 .promo-card {
   display: grid;
@@ -122,41 +100,63 @@ body {
   padding: 20px 30px;
   text-align: left;
 
-  background-size: cover;
+  background-size: contain;
   background-position:center;
+
 }
 .promo-card.pizza h2{
   margin: 0 0 12px;
-  font-size: 60px;
 }
 .promo-card.burger p {
-  font-size: 30px;
+  margin: 0 0 12px;
   color: white;
 }
 .promo-card.burger h3 {
-  font-size: 30px;
+  margin: 0 0 12px;
   color: black;
 }
 .promo-card.kurye h3  {
-  font-size: 1.5rem;
   margin: 0 0 10px;
 }
 .promo-card.kurye h3 .red {
   color: red;
   font-weight: bold;
 }
-
+/* promo-card resimler  */
+.promo-card.pizza {
+  background-image: url("./public/assets/iteration-2/cta/kart-1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+} 
+.promo-card.burger{
+  background-image: url("./public/assets/iteration-2/cta/kart-2.png");
+  width: 160%;
+}
+.promo-card.kurye {
+  background-image: url("./public/assets/iteration-2/cta/kart-3.png");
+  width: 150%;
+  background-repeat: no-repeat;
+}
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
 /* ortadaki resimler */
 
 .promo-card button {
-  margin-top: 10px;
-  background: white;
+  background: #fff;
   color: #e63946;
   border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.promo-card.large {
+  grid-row: span 2;
 }
 /*ortanın altı */
 .menu-section {
@@ -203,6 +203,7 @@ body {
   color: #fff;
 }
 .menu-grid {
+  flex-wrap: wrap;
   display: flex;
   justify-content: center; /*kartları ortala*/
   gap: 20px;
@@ -275,7 +276,7 @@ footer {
 }
 .footer-bottom .social { font-size:18px; }
 
-@media (max-width:768px) {
+@media (max-width:541px) {
   .hero{
     min-height: auto;
     padding: 40px 20px;
@@ -288,6 +289,7 @@ footer {
     font-size: 1.2rem;
   }
   .categories {
+    grid-template-columns: repeat(2,1fr);
     flex-wrap: wrap;
     gap:20px;
   }
@@ -297,14 +299,19 @@ footer {
   }
  /*Promo section */
  .promo-grid {
+  display: flex;
   flex-direction: column;
   align-items: center;
- } /*duzenlenecek */ 
+  gap: 20px;
+ }
+  .promo-card{ 
+    width: 100%;
+    max-width: 500px;
+  
+ } 
  .pizza,.burger,.kurye{
-  width: 100%;
-  max-width: 250px;
-  height: 40px;
   background-size: cover;
+  min-height: 220px;
  }
  .menu-grid {
   flex-direction: column;
@@ -367,4 +374,3 @@ footer {
     text-align: center;
   }
 }
-
